@@ -21,7 +21,7 @@ def print_hi(name):
 
 
 def chatGPTModel(question):
-    openai.api_key = "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"
+    openai.api_key = "sk-"
 
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
@@ -40,8 +40,10 @@ def chatGPTModel(question):
 if __name__ == '__main__':
     # print_hi('PyCharm')
     str = "YES"
-    while str.upper() != "NO" and str.upper() != "N":
+    while True:
         str = input("Enter your question(enter:N or NO to quit):")
+        if str.upper() == "NO" or str.upper() != "N":
+            break
         print("--------------------------the answer----------------------------")
         chatGPTModel(str)
         print("--------------------------the answer----------------------------")
