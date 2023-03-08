@@ -3,25 +3,9 @@
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import openai
-
-def print_hi(name):
-    openai.api_key = "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"
-
-    # list models
-    models = openai.Model.list()
-
-    # print the first model's id
-    print(models.data[0].id)
-
-    # create a completion
-    completion = openai.Completion.create(model="ada", prompt="Hello world")
-
-    # print the completion
-    print(completion.choices[0].text)
-
+import config
 
 def chatGPTModel(question):
-    openai.api_key = "sk-"
 
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
@@ -42,7 +26,7 @@ if __name__ == '__main__':
     str = "YES"
     while True:
         str = input("Enter your question(enter:N or NO to quit):")
-        if str.upper() == "NO" or str.upper() != "N":
+        if str.upper() == "NO" or str.upper() == "N":
             break
         print("--------------------------the answer----------------------------")
         chatGPTModel(str)
